@@ -1,0 +1,2 @@
+rootProject.name = "spi"
+include ':app'
