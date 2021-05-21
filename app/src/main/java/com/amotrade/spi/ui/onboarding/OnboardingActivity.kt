@@ -1,10 +1,10 @@
 package com.amotrade.spi.ui.onboarding
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.amotrade.spi.R
+import com.amotrade.spi.base.BaseActivity
 
-class OnboardingActivity : AppCompatActivity() {
+class OnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
