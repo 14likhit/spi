@@ -4,7 +4,7 @@
     <!--Onboarding-->
     <string name="first_of_few_steps">First of few steps to set you up ith a Bank Account</string>
     <string name="pan_number_title">PAN NUMBER</string>
-    <string name="pan_number_hint">XXXXXOOOO</string>
+    <string name="pan_number_hint">ABCDE1234F</string>
     <string name="birthdate_title">BIRTHDATE</string>
     <string name="birthdate_date_hint">DD</string>
     <string name="birthdate_month_hint">MM</string>
