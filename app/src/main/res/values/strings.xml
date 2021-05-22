@@ -2,7 +2,7 @@
     <string name="app_name">spi</string>
     
     <!--Onboarding-->
-    <string name="first_of_few_steps">First of few steps to set you up ith a Bank Account</string>
+    <string name="first_of_few_steps">First of few steps to set you up with a Bank Account</string>
     <string name="pan_number_title">PAN NUMBER</string>
     <string name="pan_number_hint">ABCDE1234F</string>
     <string name="birthdate_title">BIRTHDATE</string>
@@ -12,4 +12,5 @@
     <string name="note_pan_dob">Providing PAN &amp; Date of Birth helps us find and fetch your KYC from a central registry by the Government of India.Learn More</string>
     <string name="button_next">Next</string>
     <string name="help_i_dont_have_pan">I don\'t have a PAN</string>
+    <string name="logo_s">S.</string>
 </resources>

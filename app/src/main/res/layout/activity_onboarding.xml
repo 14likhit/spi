@@ -11,184 +11,271 @@
         android:id="@+id/onboarding_root_nv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         tools:context=".ui.onboarding.OnboardingActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/onboarding_container_cl"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_16dp">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/title_tv"
-                android:layout_width="match_parent"
+                android:id="@+id/logo_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/first_of_few_steps"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:text="@string/logo_s"
+                android:textColor="@color/orange_logo"
+                android:textSize="@dimen/dimen_30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/title_tv"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/pan_title_tv"
+                android:id="@+id/title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:text="@string/pan_number_title"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_tv" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pan_input_til"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/dimen_200dp"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_16dp"
                 android:layout_marginEnd="@dimen/dimen_16dp"
+                android:text="@string/first_of_few_steps"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimen_24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pan_title_tv">
+                app:layout_constraintTop_toBottomOf="@id/logo_tv"
+                app:layout_constraintBottom_toTopOf="@id/pan_input_cl"
+                app:layout_constraintVertical_bias="0.5" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/pan_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    android:ems="10"
-                    android:hint="@string/pan_number_hint"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    tools:ignore="UnusedAttribute" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/birthdate_title_tv"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pan_input_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"
-                android:text="@string/birthdate_title"
-                android:textAlignment="center"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                app:layout_constraintBottom_toTopOf="@id/birthdate_input_cl"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pan_input_til" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/birthdate_date_input_til"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/dimen_64dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_16dp"
-                app:layout_constraintEnd_toStartOf="@id/birthdate_month_input_til"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/birthdate_date_et"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/pan_title_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="0123456789"
-                    android:ems="2"
-                    android:hint="@string/birthdate_date_hint"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    tools:ignore="UnusedAttribute" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:text="@string/pan_number_title"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/birthdate_month_input_til"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/dimen_64dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_16dp"
-                app:layout_constraintEnd_toStartOf="@id/birthdate_year_input_til"
-                app:layout_constraintStart_toEndOf="@id/birthdate_date_input_til"
-                app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/birthdate_month_et"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pan_input_til"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="0123456789"
-                    android:ems="2"
-                    android:hint="@string/birthdate_month_hint"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    tools:ignore="UnusedAttribute" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pan_title_tv">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/birthdate_year_input_til"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/dimen_100dp"
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/pan_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:ems="10"
+                        android:hint="@string/pan_number_hint"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        tools:ignore="UnusedAttribute" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/birthdate_input_cl"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_16dp"
-                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_32dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/birthdate_month_input_til"
-                app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pan_input_cl"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/birthdate_year_et"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/birthdate_title_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="0123456789"
-                    android:ems="2"
-                    android:hint="@string/birthdate_year_hint"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    tools:ignore="UnusedAttribute" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:text="@string/birthdate_title"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimen_12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birthdate_date_input_til"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    app:layout_constraintEnd_toStartOf="@id/birthdate_month_input_til"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/birthdate_date_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:ems="2"
+                        android:gravity="center"
+                        android:hint="@string/birthdate_date_hint"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        tools:ignore="UnusedAttribute" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birthdate_month_input_til"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    app:layout_constraintEnd_toStartOf="@id/birthdate_year_input_til"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@id/birthdate_date_input_til"
+                    app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/birthdate_month_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:ems="2"
+                        android:gravity="center"
+                        android:hint="@string/birthdate_month_hint"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        tools:ignore="UnusedAttribute" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birthdate_year_input_til"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="@dimen/dimen_120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/birthdate_month_input_til"
+                    app:layout_constraintTop_toBottomOf="@+id/birthdate_title_tv">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/birthdate_year_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:ems="2"
+                        android:gravity="center"
+                        android:hint="@string/birthdate_year_hint"
+                        android:imeOptions="actionNext"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        tools:ignore="UnusedAttribute" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/note_pan_birthdate_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_64dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
                 android:text="@string/note_pan_dob"
+                app:layout_constraintBottom_toTopOf="@id/next_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/birthdate_date_input_til" />
+                app:layout_constraintTop_toBottomOf="@id/birthdate_input_cl"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/next_btn"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
                 android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:backgroundTint="@color/purple_500"
                 android:text="@string/button_next"
+                app:layout_constraintBottom_toTopOf="@id/help_no_pan_tv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/note_pan_birthdate_tv" />
+                app:layout_constraintTop_toBottomOf="@id/note_pan_birthdate_tv"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/help_no_pan_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
                 android:text="@string/help_i_dont_have_pan"
+                android:textAlignment="center"
+                android:textColor="@color/purple_500"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/next_btn" />
+                app:layout_constraintTop_toBottomOf="@id/next_btn"
+                app:layout_constraintVertical_bias="1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
