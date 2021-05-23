@@ -13,4 +13,6 @@
     <string name="button_next">Next</string>
     <string name="help_i_dont_have_pan">I don\'t have a PAN</string>
     <string name="logo_s">S.</string>
+    <string name="error_pan">Please enter valid PAN.</string>
+    <string name="error_birthdate">Please enter valid birthdate</string>
 </resources>
