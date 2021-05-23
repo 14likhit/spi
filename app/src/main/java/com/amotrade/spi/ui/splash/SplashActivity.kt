@@ -34,6 +34,7 @@ class SplashActivity : BaseActivity() {
         splashViewModel.getIsRemoteConfigReceived().observe(this, {
             if (it != null && it) {
                 launchOnBoardingActivity(this)
+                finish()
             }
         })
     }

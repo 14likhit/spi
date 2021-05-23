@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">spi</string>
-    
+
     <!--Onboarding-->
     <string name="first_of_few_steps">First of few steps to set you up with a Bank Account</string>
     <string name="pan_number_title">PAN NUMBER</string>
@@ -15,4 +15,7 @@
     <string name="logo_s">S.</string>
     <string name="error_pan">Please enter valid PAN.</string>
     <string name="error_birthdate">Please enter valid birthdate</string>
+    <string name="message_click_learn_more">Learn More is clicked</string>
+    <string name="message_success_form_submission">Details submitted successfully</string>
+    <string name="message_help_no_pan">Help! I don\'t have pan</string>
 </resources>

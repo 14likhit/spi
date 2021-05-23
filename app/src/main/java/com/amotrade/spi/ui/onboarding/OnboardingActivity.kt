@@ -1,17 +1,23 @@
 package com.amotrade.spi.ui.onboarding
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.text.*
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.amotrade.spi.R
 import com.amotrade.spi.base.BaseActivity
 import com.amotrade.spi.databinding.ActivityOnboardingBinding
 import com.amotrade.spi.utils.isTextEnteredEmpty
+import com.amotrade.spi.utils.launchHomeActivity
 import com.amotrade.spi.viewmodelfactory.OnboardingViewModelFactory
 import com.amotrade.spi.viewmodels.OnboardingViewModel
+
 
 class OnboardingActivity : BaseActivity() {
 
@@ -41,7 +47,9 @@ class OnboardingActivity : BaseActivity() {
     private fun setObservers() {
         onboardingViewModel.getIsValidFormMutableLiveData().observe(this, {
             if (it != null && it) {
-                setNextButtonEnable(true)
+                showMessage(getString(R.string.message_success_form_submission))
+                launchHomeActivity(this)
+                finish()
             }
         })
 
@@ -63,9 +71,39 @@ class OnboardingActivity : BaseActivity() {
 
         setTextWatchers()
 
+        val spannableString = SpannableString(getString(R.string.note_pan_dob))
+        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.isUnderlineText = false
+            }
+
+            override fun onClick(textView: View) {
+                showMessage(getString(R.string.message_click_learn_more))
+            }
+        }
+
+        spannableString.setSpan(
+            clickableSpan,
+            getString(R.string.note_pan_dob).length - 10,
+            getString(R.string.note_pan_dob).length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        activityOnboardingBinding.notePanBirthdateTv.text = spannableString
+        activityOnboardingBinding.notePanBirthdateTv.movementMethod =
+            LinkMovementMethod.getInstance()
+        activityOnboardingBinding.notePanBirthdateTv.highlightColor = Color.TRANSPARENT
+
         activityOnboardingBinding.nextBtn.setOnClickListener {
             setFormDetails()
             onboardingViewModel.validateForm(panCardNumber, dob)
+        }
+
+        activityOnboardingBinding.helpNoPanTv.setOnClickListener {
+            showMessage(getString(R.string.message_help_no_pan))
+            launchHomeActivity(this)
         }
     }
 
