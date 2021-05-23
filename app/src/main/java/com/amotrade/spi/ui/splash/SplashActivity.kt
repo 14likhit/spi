@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.amotrade.spi.R
 import com.amotrade.spi.base.BaseActivity
 import com.amotrade.spi.databinding.ActivitySplashBinding
+import com.amotrade.spi.utils.launchOnBoardingActivity
 import com.amotrade.spi.viewmodelfactory.SplashViewModelFactory
 import com.amotrade.spi.viewmodels.SplashViewModel
 
@@ -24,10 +25,20 @@ class SplashActivity : BaseActivity() {
         splashViewModel =
             ViewModelProvider(this, splashViewModelFactory).get(SplashViewModel::class.java)
 
+        setObservers()
+
         intiView()
     }
 
-    private fun intiView() {
+    private fun setObservers() {
+        splashViewModel.getIsRemoteConfigReceived().observe(this, {
+            if (it != null && it) {
+                launchOnBoardingActivity(this)
+            }
+        })
+    }
 
+    private fun intiView() {
+        splashViewModel.getConfigSettings()
     }
 }
