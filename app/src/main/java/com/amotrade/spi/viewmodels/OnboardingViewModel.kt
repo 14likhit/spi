@@ -38,6 +38,9 @@ class OnboardingViewModel() : ViewModel() {
         val date: Int = dateArray[0].toInt()
         val month: Int = dateArray[1].toInt()
         val year: Int = dateArray[2].toInt()
+        //Added basic check for date not greater than 31
+        //month not greater than 12
+        //year between 1960 and 2011
         if (date > 31) {
             return false
         } else if (month > 12) {
